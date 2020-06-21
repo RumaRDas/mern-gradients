@@ -1,17 +1,16 @@
 const mongoose = require("mongoose");
-const db = "mongodb://localhost/mern_gradient";
+// const db = "mongodb://localhost/mern_gradient";
+const db =
+  "mongodb+srv://subroto:qwertyuiop@cluster0-m86si.mongodb.net/gradient_db?retryWrites=true&w=majority";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://subroto:qwertyuiop@cluster0-m86si.mongodb.net/gradient_db?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true,
-      }
-    );
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+    });
 
     console.log("mongodb is successfully connected...");
   } catch (error) {

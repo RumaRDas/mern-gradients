@@ -9,11 +9,9 @@ import {
 } from "../constants/types";
 import axios from "axios";
 
-const url = "http://localhost:5000/gradients";
-
 // get all gradients
 export const getGradients = () => async (dispatch) => {
-  const result = await axios.get(url);
+  const result = await axios.get("/gradients");
 
   dispatch({
     type: GET_GRADIENTS,
@@ -23,7 +21,7 @@ export const getGradients = () => async (dispatch) => {
 
 // create a gradient
 export const createGradient = (gradient) => async (dispatch) => {
-  const result = await axios.post(url, gradient);
+  const result = await axios.post("/gradients", gradient);
 
   dispatch({
     type: CREATE_GRADIENT,
@@ -33,10 +31,7 @@ export const createGradient = (gradient) => async (dispatch) => {
 
 // update a gradient
 export const updateGradient = (gradient) => async (dispatch) => {
-  const result = await axios.put(
-    `http://localhost:5000/gradients/${gradient._id}`,
-    gradient
-  );
+  const result = await axios.put(`/gradients/${gradient._id}`, gradient);
 
   dispatch({
     type: UPDATE_GRADIENT,
@@ -47,7 +42,7 @@ export const updateGradient = (gradient) => async (dispatch) => {
 // delete a gardient
 export const deleteGradient = (id) => async (dispatch) => {
   console.log(id);
-  await axios.delete(`http://localhost:5000/gradients/${id}`);
+  await axios.delete(`/gradients/${id}`);
   dispatch({
     type: DELETE_GRADIENT,
     payload: id,
@@ -56,7 +51,7 @@ export const deleteGradient = (id) => async (dispatch) => {
 
 // download a gardient
 export const downloadGradient = (gradientName) => async (dispatch) => {
-  window.open(`/download/${gradientName}`);
+  window.open(`/gradients/download/${gradientName}`);
   dispatch({
     type: DOWNLOAD_GRADIENT,
     payload: gradientName,
