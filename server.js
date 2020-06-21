@@ -3,7 +3,8 @@ const app = express();
 const connectDB = require("./config/database");
 const path = require("path");
 
-// connect dabase
+// connect database
+// db
 connectDB();
 
 // middleware
@@ -12,7 +13,6 @@ app.use(express.json());
 app.use("/gradients", require("./routes/api/gradient"));
 
 if (process.env.NODE_ENV === "production") {
-  // Set static folder
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
