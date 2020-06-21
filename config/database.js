@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 // const db = "mongodb://localhost/mern_gradient";
-const db =
-  "mongodb+srv://subroto:qwertyuiop@cluster0-m86si.mongodb.net/gradient_db?retryWrites=true&w=majority";
+const db = "YOUR_MONGO_DATBASE_URI_HERE";
 
 const connectDB = async () => {
   try {
